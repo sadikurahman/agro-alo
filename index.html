@@ -373,25 +373,23 @@
   const searchInput = document.querySelector('.search-box input');
   const products = document.querySelectorAll('.product');
 
-  searchInput.addEventListener('input', function () {
-    const searchText = this.value.toLowerCase().trim();
+  searchInput.addEventListener('keyup', function () {
+
+    const searchText = searchInput.value.toLowerCase();
 
     products.forEach(function (product) {
-      const productName = product
-        .querySelector('h3')
-        .textContent
-        .toLowerCase();
 
-      if (productName.includes(searchText)) {
-        product.style.display = 'block';
+      const productText = product.textContent.toLowerCase();
+
+      if (productText.includes(searchText)) {
+        product.style.display = '';
       } else {
         product.style.display = 'none';
       }
+
     });
+
   });
-</script>
-  <script>
-  alert("Agro Alo is working!");
 </script>
 </body>
 </html>
