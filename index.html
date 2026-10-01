@@ -1,395 +1,815 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Agro Alo | কৃষকের বাজার</title>
+<title>Agro Alo - কৃষকের পাশে</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7faf5;
-      color: #183b25;
-    }
+body{
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  background:#f4faf5;
+  color:#173d27;
+  padding-bottom:75px;
+}
 
-    /* Header */
-    header {
-      background: white;
-      padding: 16px 18px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+/* HEADER */
+header{
+  background:white;
+  padding:13px 15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+  position:sticky;
+  top:0;
+  z-index:20;
+}
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-    }
+.logo{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
 
-    .menu {
-      font-size: 25px;
-    }
+.logo-icon{
+  font-size:37px;
+}
 
-    /* Hero */
-    .hero {
-      padding: 50px 22px;
-      text-align: center;
-      background: #e5f3df;
-    }
+.logo-text h1{
+  font-size:25px;
+  color:#087b39;
+}
 
-    .hero h1 {
-      font-size: 34px;
-      line-height: 1.25;
-      margin-bottom: 15px;
-    }
+.logo-text p{
+  font-size:11px;
+  color:#555;
+  margin-top:2px;
+}
 
-    .hero p {
-      font-size: 16px;
-      line-height: 1.7;
-      color: #405546;
-      margin-bottom: 25px;
-    }
+.header-icons{
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
 
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
+.header-icon{
+  font-size:25px;
+  background:#edf8f0;
+  border-radius:50%;
+  width:42px;
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 
-    .btn {
-      display: inline-block;
-      padding: 13px 22px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+/* HERO */
+.hero{
+  margin:10px 12px;
+  height:150px;
+  border-radius:20px;
+  overflow:hidden;
+  position:relative;
+  background:
+    linear-gradient(90deg,rgba(0,80,30,.92),rgba(0,110,45,.55)),
+    url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=80")
+    center/cover;
+  color:white;
+  padding:22px;
+}
 
-    .primary {
-      background: #2e7d32;
-      color: white;
-    }
+.hero h2{
+  font-size:23px;
+  margin:7px 0;
+  max-width:290px;
+}
 
-    .secondary {
-      background: white;
-      color: #2e7d32;
-      border: 1px solid #2e7d32;
-    }
+.hero p{
+  font-size:15px;
+}
 
-    /* Search */
-    .search-box {
-      padding: 25px 18px;
-      background: white;
-    }
+.weather{
+  position:absolute;
+  right:12px;
+  top:48px;
+  background:rgba(20,130,70,.9);
+  border-radius:25px;
+  padding:10px 14px;
+  font-size:13px;
+}
 
-    .search-box input {
-      width: 100%;
-      padding: 15px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      font-size: 15px;
-      outline: none;
-    }
+/* SEARCH */
+.search{
+  margin:12px;
+  background:white;
+  border:1px solid #d7e8dc;
+  border-radius:25px;
+  display:flex;
+  align-items:center;
+  padding:4px 14px;
+}
 
-    /* Section */
-    .section {
-      padding: 32px 18px;
-    }
+.search span{
+  font-size:25px;
+}
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 22px;
-      font-size: 26px;
-    }
+.search input{
+  width:100%;
+  border:0;
+  outline:none;
+  padding:13px 10px;
+  font-size:15px;
+}
 
-    /* Categories */
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
+/* MAIN BUTTONS */
+.main-buttons{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:12px;
+}
 
-    .category {
-      background: white;
-      padding: 20px 10px;
-      text-align: center;
-      border-radius: 12px;
-      box-shadow: 0 2px 9px rgba(0,0,0,0.07);
-    }
+.main-btn{
+  border:0;
+  border-radius:18px;
+  padding:17px 12px;
+  color:white;
+  text-align:left;
+  font-weight:bold;
+  cursor:pointer;
+}
 
-    .category .icon {
-      font-size: 35px;
-      margin-bottom: 8px;
-    }
+.sell{
+  background:linear-gradient(135deg,#08a64b,#078438);
+}
 
-    .category h3 {
-      font-size: 16px;
-    }
+.buy{
+  background:linear-gradient(135deg,#ffbe08,#f39a00);
+}
 
-    /* Products */
-    .products {
-      display: grid;
-      gap: 15px;
-    }
+.main-btn .big{
+  font-size:25px;
+  display:block;
+  margin-bottom:7px;
+}
 
-    .product {
-      background: white;
-      padding: 18px;
-      border-radius: 12px;
-      box-shadow: 0 2px 9px rgba(0,0,0,0.07);
-    }
+.main-btn strong{
+  font-size:18px;
+}
 
-    .product-image {
-      height: 130px;
-      background: #e8f3e3;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 60px;
-      margin-bottom: 14px;
-    }
+.main-btn small{
+  display:block;
+  margin-top:5px;
+  font-size:11px;
+  font-weight:normal;
+}
 
-    .product h3 {
-      margin-bottom: 7px;
-    }
+/* CATEGORY */
+.section{
+  margin:18px 12px;
+}
 
-    .price {
-      font-weight: bold;
-      color: #2e7d32;
-      font-size: 18px;
-      margin: 8px 0;
-    }
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+}
 
-    .location {
-      font-size: 14px;
-      color: #777;
-    }
+.section-title h2{
+  font-size:20px;
+}
 
-    /* Farmer section */
-    .farmer {
-      background: #1f4d2b;
-      color: white;
-      padding: 35px 20px;
-      text-align: center;
-    }
+.section-title a{
+  color:#07823c;
+  font-size:13px;
+  text-decoration:none;
+}
 
-    .farmer h2 {
-      margin-bottom: 12px;
-    }
+.categories{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
+}
 
-    .farmer p {
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
+.category{
+  background:#effaf2;
+  border-radius:16px;
+  padding:13px 5px;
+  text-align:center;
+  min-height:88px;
+}
 
-    .farmer .btn {
-      background: white;
-      color: #1f4d2b;
-    }
+.category .icon{
+  font-size:30px;
+  margin-bottom:6px;
+}
 
-    /* Footer */
-    footer {
-      background: #102519;
-      color: white;
-      text-align: center;
-      padding: 28px 15px;
-    }
+.category p{
+  font-size:13px;
+}
 
-    footer p {
-      margin: 7px 0;
-      font-size: 14px;
-    }
-  </style>
+/* MARKET */
+.market-box{
+  background:white;
+  border:1px solid #dceee1;
+  border-radius:18px;
+  padding:12px;
+  overflow:hidden;
+}
+
+.market-list{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+}
+
+.market-card{
+  min-width:145px;
+  background:#fff;
+  border:1px solid #e2eee5;
+  border-radius:13px;
+  overflow:hidden;
+}
+
+.market-img{
+  width:100%;
+  height:82px;
+  object-fit:cover;
+}
+
+.market-info{
+  padding:8px;
+}
+
+.market-info h3{
+  font-size:15px;
+  margin-bottom:5px;
+}
+
+.price{
+  font-size:16px;
+  font-weight:bold;
+}
+
+.change{
+  color:#159447;
+  font-size:13px;
+  margin-top:4px;
+}
+
+/* PRODUCTS */
+.products{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+}
+
+.product{
+  min-width:190px;
+  background:white;
+  border:1px solid #dcece0;
+  border-radius:16px;
+  overflow:hidden;
+}
+
+.product img{
+  width:100%;
+  height:110px;
+  object-fit:cover;
+}
+
+.product-info{
+  padding:9px;
+}
+
+.product-info h3{
+  font-size:15px;
+  margin-bottom:5px;
+}
+
+.location{
+  color:#777;
+  font-size:12px;
+  margin-bottom:5px;
+}
+
+.product-price{
+  color:#087c3b;
+  font-size:16px;
+  font-weight:bold;
+}
+
+/* SERVICES */
+.services{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+
+.service{
+  background:#effaf2;
+  border-radius:15px;
+  padding:13px 7px;
+  text-align:center;
+}
+
+.service .icon{
+  font-size:31px;
+  margin-bottom:7px;
+}
+
+.service h3{
+  font-size:13px;
+}
+
+.service p{
+  color:#777;
+  font-size:10px;
+  margin-top:4px;
+}
+
+/* FOOTER */
+footer{
+  margin-top:20px;
+  background:#123d25;
+  color:white;
+  text-align:center;
+  padding:25px 15px;
+}
+
+footer h2{
+  font-size:22px;
+  margin-bottom:6px;
+}
+
+footer p{
+  font-size:12px;
+  color:#d7e9dc;
+}
+
+/* BOTTOM NAV */
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  height:65px;
+  background:white;
+  border-top:1px solid #ddd;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  z-index:50;
+}
+
+.nav-item{
+  text-align:center;
+  color:#777;
+  font-size:11px;
+}
+
+.nav-item .icon{
+  font-size:23px;
+  display:block;
+  margin-bottom:2px;
+}
+
+.nav-item.active{
+  color:#087c3b;
+  font-weight:bold;
+}
+
+/* MOBILE */
+@media(max-width:380px){
+  .hero h2{
+    font-size:20px;
+  }
+
+  .weather{
+    font-size:11px;
+    padding:8px 10px;
+  }
+
+  .logo-text h1{
+    font-size:22px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="logo">🌾 Agro Alo</div>
-    <div class="menu">☰</div>
-  </header>
+<!-- HEADER -->
+<header>
 
-  <!-- Hero -->
-  <section class="hero">
+  <div class="logo">
+    <div class="logo-icon">🌱</div>
 
-    <h1>কৃষকের পণ্য,<br>ক্রেতার কাছে সহজে</h1>
+    <div class="logo-text">
+      <h1>Agro Alo</h1>
+      <p>কৃষকের পাশে, সবার জন্য ভালো ফসল</p>
+    </div>
+  </div>
 
-    <p>
-      Agro Alo একটি কৃষি marketplace,
-      যেখানে কৃষক তার পণ্য তুলে ধরতে পারবেন
-      এবং ক্রেতা সহজে পণ্য খুঁজে নিতে পারবেন।
-    </p>
+  <div class="header-icons">
+    <div class="header-icon">🔔</div>
+    <div class="header-icon">👤</div>
+  </div>
 
-    <div class="buttons">
-      <a href="#products" class="btn primary">🛒 পণ্য দেখুন</a>
-      <a href="#farmer" class="btn secondary">👨‍🌾 বিক্রি করুন</a>
+</header>
+
+
+<!-- HERO -->
+<section class="hero">
+
+  <p>☀️ শুভ সকাল</p>
+
+  <h2>
+    আমাদের হোক সমৃদ্ধি,<br>
+    কৃষকের ঘরে ফিরুক হাসি
+  </h2>
+
+  <div class="weather">
+    🌤️ 28°C<br>
+    <small>Islampur</small>
+  </div>
+
+</section>
+
+
+<!-- SEARCH -->
+<div class="search">
+
+  <span>🔍</span>
+
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="ফসল, পণ্য, কৃষক, বাজার, লোকেশন খুঁজুন..."
+  >
+
+</div>
+
+
+<!-- SELL / BUY -->
+<div class="main-buttons">
+
+  <button class="main-btn sell"
+          onclick="alert('কৃষক হিসেবে পণ্য বিক্রির ব্যবস্থা শীঘ্রই আসছে!')">
+
+    <span class="big">🌱</span>
+
+    <strong>ফসল বিক্রি করুন →</strong>
+
+    <small>আপনার কষ্টার্জিত ফসলের ন্যায্য মূল্য পান</small>
+
+  </button>
+
+
+  <button class="main-btn buy"
+          onclick="document.getElementById('products').scrollIntoView()">
+
+    <span class="big">🛒</span>
+
+    <strong>ফসল কিনুন →</strong>
+
+    <small>পাইকার/ব্যবহারকারী থেকে সরাসরি</small>
+
+  </button>
+
+</div>
+
+
+<!-- CATEGORIES -->
+<section class="section">
+
+  <div class="categories">
+
+    <div class="category">
+      <div class="icon">🌱</div>
+      <p>Seeds</p>
     </div>
 
-  </section>
+    <div class="category">
+      <div class="icon">🪴</div>
+      <p>Fertilizer</p>
+    </div>
 
-  <!-- Search -->
-  <div class="search-box">
+    <div class="category">
+      <div class="icon">🧴</div>
+      <p>Pesticide</p>
+    </div>
 
-    <input
-      type="text"
-      placeholder="🔍  আপনি কী খুঁজছেন? যেমন: ধান, সবজি, আম..."
-    >
+    <div class="category">
+      <div class="icon">🚜</div>
+      <p>Vehicles</p>
+    </div>
+
+    <div class="category">
+      <div class="icon">🛠️</div>
+      <p>Tools</p>
+    </div>
+
+    <div class="category">
+      <div class="icon">👨‍🌾</div>
+      <p>Local Agent</p>
+    </div>
+
+    <div class="category">
+      <div class="icon">📈</div>
+      <p>Market Price</p>
+    </div>
+
+    <div class="category">
+      <div class="icon">🚚</div>
+      <p>Transportation</p>
+    </div>
+
+    <div class="category">
+      <div class="icon">🤖</div>
+      <p>Agri Help</p>
+    </div>
+
+    <div class="category">
+      <div class="icon">🏦</div>
+      <p>Loan</p>
+    </div>
+
+    <div class="category">
+      <div class="icon">🌦️</div>
+      <p>Weather</p>
+    </div>
+
+    <div class="category">
+      <div class="icon">•••</div>
+      <p>More</p>
+    </div>
 
   </div>
 
-  <!-- Categories -->
-  <section class="section">
+</section>
 
-    <h2 class="section-title">ক্যাটাগরি</h2>
 
-    <div class="categories">
+<!-- MARKET PRICE -->
+<section class="section">
 
-      <div class="category">
-        <div class="icon">🌾</div>
-        <h3>ধান ও শস্য</h3>
-      </div>
+  <div class="section-title">
+    <h2>🌿 আজকের বাজারদর</h2>
+    <a href="#">সব দেখুন →</a>
+  </div>
 
-      <div class="category">
-        <div class="icon">🥬</div>
-        <h3>সবজি</h3>
-      </div>
+  <div class="market-box">
 
-      <div class="category">
-        <div class="icon">🥭</div>
-        <h3>ফল</h3>
-      </div>
+    <div class="market-list">
 
-      <div class="category">
-        <div class="icon">🥔</div>
-        <h3>আলু ও অন্যান্য</h3>
-      </div>
+      <div class="market-card">
 
-    </div>
+        <img
+          class="market-img"
+          src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=500&q=80"
+        >
 
-  </section>
-
-  <!-- Products -->
-  <section class="section" id="products">
-
-    <h2 class="section-title">জনপ্রিয় পণ্য</h2>
-
-    <div class="products">
-
-      <div class="product">
-
-        <div class="product-image">🥭</div>
-
-        <h3>বাংলাদেশি আম</h3>
-
-        <div class="price">
-          ৳ ৮০ / কেজি
-        </div>
-
-        <div class="location">
-          📍 রাজশাহী
+        <div class="market-info">
+          <h3>আলু</h3>
+          <div class="price">৳ 35/kg</div>
+          <div class="change">↑ +2</div>
         </div>
 
       </div>
 
 
-      <div class="product">
+      <div class="market-card">
 
-        <div class="product-image">🥔</div>
+        <img
+          class="market-img"
+          src="https://images.unsplash.com/photo-1546094096-0df4bcaaa337?auto=format&fit=crop&w=500&q=80"
+        >
 
-        <h3>দেশি আলু</h3>
-
-        <div class="price">
-          ৳ ৩৫ / কেজি
-        </div>
-
-        <div class="location">
-          📍 মুন্সিগঞ্জ
+        <div class="market-info">
+          <h3>টমেটো</h3>
+          <div class="price">৳ 40/kg</div>
+          <div class="change">↑ +3</div>
         </div>
 
       </div>
 
 
-      <div class="product">
+      <div class="market-card">
 
-        <div class="product-image">🥬</div>
+        <img
+          class="market-img"
+          src="https://images.unsplash.com/photo-1518977956812-cd3dbadaaf31?auto=format&fit=crop&w=500&q=80"
+        >
 
-        <h3>তাজা সবজি</h3>
-
-        <div class="price">
-          ৳ ৪৫ / কেজি
+        <div class="market-info">
+          <h3>পেঁয়াজ</h3>
+          <div class="price">৳ 28/kg</div>
+          <div class="change">↑ +1</div>
         </div>
 
-        <div class="location">
-          📍 ময়মনসিংহ
+      </div>
+
+
+      <div class="market-card">
+
+        <img
+          class="market-img"
+          src="https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&w=500&q=80"
+        >
+
+        <div class="market-info">
+          <h3>কাঁচামরিচ</h3>
+          <div class="price">৳ 60/kg</div>
+          <div class="change">↑ +5</div>
         </div>
 
       </div>
 
     </div>
 
-  </section>
+  </div>
 
-  <!-- Farmer -->
-  <section class="farmer" id="farmer">
+</section>
 
-    <h2>আপনি কি কৃষক?</h2>
 
-    <p>
-      আপনার উৎপাদিত পণ্য Agro Alo-তে
-      প্রকাশ করুন এবং সম্ভাব্য ক্রেতাদের
-      কাছে পৌঁছান।
-    </p>
+<!-- NEARBY PRODUCTS -->
+<section class="section" id="products">
 
-    <a href="#" class="btn">
-      👨‍🌾 কৃষক হিসেবে শুরু করুন
-    </a>
+  <div class="section-title">
+    <h2>🌿 কাছাকাছি বিক্রির জন্য ফসল</h2>
+    <a href="#">সব দেখুন →</a>
+  </div>
 
-  </section>
+  <div class="products" id="productList">
 
-  <!-- Footer -->
-  <footer>
+    <div class="product">
 
-    <p>🌾 <strong>Agro Alo</strong></p>
+      <img src="https://images.unsplash.com/photo-1546470427-227c7369b4c7?auto=format&fit=crop&w=500&q=80">
 
-    <p>কৃষকের সাথে, কৃষির পাশে</p>
+      <div class="product-info">
 
-    <p>© 2026 Agro Alo</p>
+        <div class="location">📍 Islampur</div>
 
-  </footer>
+        <h3>টমেটো</h3>
+
+        <div class="location">500 kg available</div>
+
+        <div class="product-price">৳ 40/kg</div>
+
+      </div>
+
+    </div>
+
+
+    <div class="product">
+
+      <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=500&q=80">
+
+      <div class="product-info">
+
+        <div class="location">📍 Islampur</div>
+
+        <h3>আলু</h3>
+
+        <div class="location">1,000 kg available</div>
+
+        <div class="product-price">৳ 35/kg</div>
+
+      </div>
+
+    </div>
+
+
+    <div class="product">
+
+      <img src="https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&w=500&q=80">
+
+      <div class="product-info">
+
+        <div class="location">📍 Makkimpur</div>
+
+        <h3>কাঁচামরিচ</h3>
+
+        <div class="location">300 kg available</div>
+
+        <div class="product-price">৳ 60/kg</div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SERVICES -->
+<section class="section">
+
+  <div class="services">
+
+    <div class="service">
+      <div class="icon">👨‍🌾</div>
+      <h3>কৃষক সহায়তা</h3>
+      <p>প্রশিক্ষণ ও পরামর্শ</p>
+    </div>
+
+    <div class="service">
+      <div class="icon">🧑‍💼</div>
+      <h3>লোকাল এজেন্ট</h3>
+      <p>আপনার এলাকায় এজেন্ট</p>
+    </div>
+
+    <div class="service">
+      <div class="icon">🤝</div>
+      <h3>পার্টনার</h3>
+      <p>সহযোগী প্রতিষ্ঠান</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+  <h2>🌾 Agro Alo</h2>
+
+  <p>কৃষকের পাশে, সবার জন্য ভালো ফসল</p>
+
+  <p style="margin-top:10px;">
+    © 2026 Agro Alo
+  </p>
+
+</footer>
+
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+
+  <div class="nav-item active">
+    <span class="icon">⌂</span>
+    Home
+  </div>
+
+  <div class="nav-item">
+    <span class="icon">🌱</span>
+    E-Market
+  </div>
+
+  <div class="nav-item">
+    <span class="icon">🌿</span>
+    My Farm
+  </div>
+
+  <div class="nav-item">
+    <span class="icon">💬</span>
+    Chat
+  </div>
+
+  <div class="nav-item">
+    <span class="icon">•••</span>
+    More
+  </div>
+
+</div>
+
+
+<!-- SEARCH FUNCTION -->
 <script>
-  const searchInput = document.querySelector('.search-box input');
-  const products = document.querySelectorAll('.product');
 
-  searchInput.addEventListener('keyup', function () {
+const searchInput = document.getElementById("searchInput");
+const products = document.querySelectorAll(".product");
 
-    const searchText = searchInput.value.toLowerCase();
+searchInput.addEventListener("input", function(){
 
-    products.forEach(function (product) {
+  const searchText = this.value.toLowerCase().trim();
 
-      const productText = product.textContent.toLowerCase();
+  products.forEach(function(product){
 
-      if (productText.includes(searchText)) {
-        product.style.display = '';
-      } else {
-        product.style.display = 'none';
-      }
+    const productText = product.innerText.toLowerCase();
 
-    });
+    if(productText.includes(searchText)){
+      product.style.display = "";
+    }else{
+      product.style.display = "none";
+    }
 
   });
+
+});
+
 </script>
+
 </body>
 </html>
