@@ -3,415 +3,497 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Agro Alo - কৃষকের পাশে</title>
+<!-- Google Fonts থেকে Hind Siliguri ফন্ট যুক্ত করা হলো চমৎকার বাংলা লেখার জন্য -->
+<link href="https://googleapis.com" rel="stylesheet">
 
 <style>
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-  font-family:Arial,"Noto Sans Bengali",sans-serif;
-  background:#f4faf5;
-  color:#173d27;
-  padding-bottom:75px;
+body {
+  font-family: 'Hind Siliguri', Arial, sans-serif;
+  background: #f1f8f3;
+  color: #1a3322;
+  padding-bottom: 80px;
 }
 
 /* HEADER */
-header{
-  background:white;
-  padding:13px 15px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  box-shadow:0 2px 8px rgba(0,0,0,.08);
-  position:sticky;
-  top:0;
-  z-index:20;
+header {
+  background: white;
+  padding: 15px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.logo{
-  display:flex;
-  align-items:center;
-  gap:8px;
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.logo-icon{
-  font-size:37px;
+.logo-icon img {
+  width: 42px;
+  height: 42px;
 }
 
-.logo-text h1{
-  font-size:25px;
-  color:#087b39;
+.logo-text h1 {
+  font-size: 24px;
+  color: #067236;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
-.logo-text p{
-  font-size:11px;
-  color:#555;
-  margin-top:2px;
+.logo-text p {
+  font-size: 11px;
+  color: #5d7264;
 }
 
-.header-icons{
-  display:flex;
-  gap:14px;
-  align-items:center;
+.header-icons {
+  display: flex;
+  gap: 14px;
+  align-items: center;
 }
 
-.header-icon{
-  font-size:25px;
-  background:#edf8f0;
-  border-radius:50%;
-  width:42px;
-  height:42px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.header-icon {
+  background: #f1f8f3;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
 }
 
-/* HERO */
-.hero{
-  margin:10px 12px;
-  height:150px;
-  border-radius:20px;
-  overflow:hidden;
-  position:relative;
-  background:
-    linear-gradient(90deg,rgba(0,80,30,.92),rgba(0,110,45,.55)),
-    url("https://unsplash.com")
-    center/cover;
-  color:white;
-  padding:22px;
+/* HERO BANNER */
+.hero {
+  margin: 12px;
+  height: 140px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  background: 
+    linear-gradient(90deg, rgba(16, 76, 36, 0.9) 0%, rgba(26, 114, 56, 0.4) 100%),
+    url('https://unsplash.com') center/cover;
+  color: white;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.hero h2{
-  font-size:23px;
-  margin:7px 0;
-  max-width:290px;
+.hero p {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  opacity: 0.9;
 }
 
-.hero p{
-  font-size:15px;
+.hero h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 6px;
+  line-height: 1.4;
+  max-width: 220px;
 }
 
-.weather{
-  position:absolute;
-  right:12px;
-  top:48px;
-  background:rgba(20,130,70,.9);
-  border-radius:25px;
-  padding:10px 14px;
-  font-size:13px;
+.weather {
+  position: absolute;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  border-radius: 12px;
+  padding: 6px 12px;
+  font-size: 12px;
+  text-align: right;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* SEARCH */
-.search{
-  margin:12px;
-  background:white;
-  border:1px solid #d7e8dc;
-  border-radius:25px;
-  display:flex;
-  align-items:center;
-  padding:4px 14px;
+.weather strong {
+  font-size: 14px;
+  display: block;
 }
 
-.search span{
-  font-size:25px;
+/* SEARCH BAR */
+.search-container {
+  margin: 12px;
+  background: white;
+  border: 1px solid #dbe7df;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.02);
 }
 
-.search input{
-  width:100%;
-  border:0;
-  outline:none;
-  padding:13px 10px;
-  font-size:15px;
+.search-container .search-icon {
+  font-size: 18px;
+  color: #728a7c;
 }
 
-/* MAIN BUTTONS */
-.main-buttons{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin:12px;
+.search-container input {
+  width: 100%;
+  border: 0;
+  outline: none;
+  padding: 12px 10px;
+  font-size: 14px;
+  color: #1a3322;
+  font-family: inherit;
 }
 
-.main-btn{
-  border:0;
-  border-radius:18px;
-  padding:17px 12px;
-  color:white;
-  text-align:left;
-  font-weight:bold;
-  cursor:pointer;
+.search-container .filter-icon {
+  font-size: 18px;
+  color: #067236;
+  cursor: pointer;
 }
 
-.sell{
-  background:linear-gradient(135deg,#08a64b,#078438);
+/* MAIN ACTIONS (SELL/BUY) */
+.main-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 12px;
 }
 
-.buy{
-  background:linear-gradient(135deg,#ffbe08,#f39a00);
+.main-btn {
+  border: 0;
+  border-radius: 16px;
+  padding: 16px 14px;
+  color: white;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
 }
 
-.main-btn .big{
-  font-size:25px;
-  display:block;
-  margin-bottom:7px;
+.sell-btn {
+  background: #067236;
 }
 
-.main-btn strong{
-  font-size:18px;
+.buy-btn {
+  background: #ffb000;
 }
 
-.main-btn small{
-  display:block;
-  margin-top:5px;
-  font-size:11px;
-  font-weight:normal;
+.btn-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-/* CATEGORY */
-.section{
-  margin:18px 12px;
+.btn-icon-wrapper {
+  background: rgba(255, 255, 255, 0.2);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
 }
 
-.section-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:12px;
+.btn-arrow {
+  font-size: 16px;
 }
 
-.section-title h2{
-  font-size:20px;
+.main-btn strong {
+  font-size: 16px;
+  margin-top: 10px;
+  font-weight: 700;
 }
 
-.section-title a{
-  color:#07823c;
-  font-size:13px;
-  text-decoration:none;
+.main-btn small {
+  font-size: 10px;
+  opacity: 0.9;
+  margin-top: 2px;
+  font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
 }
 
-.categories{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:9px;
+/* GRID CATEGORIES */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  margin: 16px 12px;
 }
 
-.category{
-  background:#effaf2;
-  border-radius:16px;
-  padding:13px 5px;
-  text-align:center;
-  min-height:88px;
+.category-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
 }
 
-.category .icon{
-  font-size:30px;
-  margin-bottom:6px;
+.category-icon {
+  background: #e3f2e8;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 4px;
+  transition: transform 0.2s;
 }
 
-.category p{
-  font-size:13px;
+.category-item p {
+  font-size: 11px;
+  color: #4a5e50;
+  font-weight: 500;
 }
 
-/* MARKET */
-.market-box{
-  background:white;
-  border:1px solid #dceee1;
-  border-radius:18px;
-  padding:12px;
-  overflow:hidden;
+/* SECTION STRUCTURE */
+.section-wrapper {
+  margin: 20px 12px;
 }
 
-.market-list{
-  display:flex;
-  gap:10px;
-  overflow-x:auto;
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.market-card{
-  min-width:145px;
-  background:#fff;
-  border:1px solid #e2eee5;
-  border-radius:13px;
-  overflow:hidden;
+.section-header h2 {
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.market-img{
-  width:100%;
-  height:82px;
-  object-fit:cover;
+.section-header .see-all {
+  color: #067236;
+  font-size: 12px;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-.market-info{
-  padding:8px;
+/* HORIZONTAL SCROLL LISTS */
+.scroll-container {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none; /* Firefox */
 }
 
-.market-info h3{
-  font-size:15px;
-  margin-bottom:5px;
+.scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }
 
-.price{
-  font-size:16px;
-  font-weight:bold;
+/* MARKET CARD */
+.market-card {
+  min-width: 135px;
+  max-width: 135px;
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #e3ede6;
+  padding: 8px;
 }
 
-.change{
-  color:#159447;
-  font-size:13px;
-  margin-top:4px;
+.market-card img {
+  width: 100%;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
-/* PRODUCTS */
-.products{
-  display:flex;
-  gap:10px;
-  overflow-x:auto;
+.market-info {
+  margin-top: 6px;
 }
 
-.product{
-  min-width:190px;
-  background:white;
-  border:1px solid #dcece0;
-  border-radius:16px;
-  overflow:hidden;
+.market-info h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a3322;
 }
 
-.product img{
-  width:100%;
-  height:110px;
-  object-fit:cover;
+.market-info .price {
+  font-size: 12px;
+  color: #555;
+  margin-top: 2px;
 }
 
-.product-info{
-  padding:9px;
+.market-info .trend {
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 2px;
 }
 
-.product-info h3{
-  font-size:15px;
-  margin-bottom:5px;
+.trend.up { color: #2e7d32; }
+.trend.down { color: #c62828; }
+
+/* PRODUCT CARD */
+.product-card {
+  min-width: 180px;
+  max-width: 180px;
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #e3ede6;
+  padding: 8px;
 }
 
-.location{
-  color:#777;
-  font-size:12px;
-  margin-bottom:5px;
+.product-card img {
+  width: 100%;
+  height: 95px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
-.product-price{
-  color:#087c3b;
-  font-size:16px;
-  font-weight:bold;
+.product-details {
+  margin-top: 6px;
 }
 
-/* SERVICES */
-.services{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:8px;
+.meta-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  color: #ff6f00;
+  font-weight: 600;
 }
 
-.service{
-  background:#effaf2;
-  border-radius:15px;
-  padding:13px 7px;
-  text-align:center;
+.product-details h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a3322;
+  margin-top: 2px;
 }
 
-.service .icon{
-  font-size:31px;
-  margin-bottom:7px;
+.product-details .qty {
+  font-size: 10px;
+  color: #728a7c;
 }
 
-.service h3{
-  font-size:13px;
+.product-details .price {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a3322;
+  margin-top: 2px;
 }
 
-.service p{
-  color:#777;
-  font-size:10px;
-  margin-top:4px;
+.tag-farmer {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #eaf6ee;
+  color: #067236;
+  font-size: 9px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  margin-top: 4px;
+  font-weight: 600;
 }
 
-/* FOOTER */
-footer{
-  margin-top:20px;
-  background:#123d25;
-  color:white;
-  text-align:center;
-  padding:25px 15px;
+/* INFO ROW (HELPERS) */
+.info-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 16px 12px;
 }
 
-footer h2{
-  font-size:22px;
-  margin-bottom:6px;
+.info-card {
+  background: #eaf6ee;
+  border-radius: 14px;
+  padding: 12px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
 }
 
-footer p{
-  font-size:12px;
-  color:#d7e9dc;
+.info-card .avatar {
+  font-size: 24px;
 }
 
-/* BOTTOM NAV */
-.bottom-nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  height:65px;
-  background:white;
-  border-top:1px solid #ddd;
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  z-index:50;
+.info-text h4 {
+  font-size: 11px;
+  font-weight: 700;
+  color: #1a3322;
 }
 
-.nav-item{
-  text-align:center;
-  color:#777;
-  font-size:11px;
+.info-text p {
+  font-size: 9px;
+  color: #5d7264;
+  line-height: 1.2;
+  margin-top: 1px;
 }
 
-.nav-item .icon{
-  font-size:23px;
-  display:block;
-  margin-bottom:2px;
+/* NO RESULT MESSAGE */
+#noResult {
+  display: none;
+  text-align: center;
+  padding: 30px 15px;
+  color: #555;
 }
 
-.nav-item.active{
-  color:#087c3b;
-  font-weight:bold;
+/* BOTTOM NAVIGATION BAR */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 65px;
+  background: white;
+  border-top: 1px solid #e2ece5;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
 }
 
-/* MOBILE */
-@media(max-width:380px){
-  .hero h2{
-    font-size:20px;
-  }
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #728a7c;
+  font-size: 10px;
+  font-weight: 500;
+  cursor: pointer;
+}
 
-  .weather{
-    font-size:11px;
-    padding:8px 10px;
-  }
+.nav-item .icon {
+  font-size: 20px;
+  margin-bottom: 2px;
+}
 
-  .logo-text h1{
-    font-size:22px;
-  }
+.nav-item.active {
+  color: #067236;
+  font-weight: 700;
 }
 </style>
 </head>
-
 <body>
 
 <!-- HEADER -->
 <header>
   <div class="logo">
-    <div class="logo-icon">🌱</div>
+    <div class="logo-icon">
+      <!-- স্ক্রিনশটের মতো লোগো আইকন সেট করা হলো -->
+      <span style="font-size:32px;">🌱</span>
+    </div>
     <div class="logo-text">
       <h1>Agro Alo</h1>
       <p>কৃষকের পাশে, সবার জন্য ভালো ফসল</p>
@@ -423,119 +505,48 @@ footer p{
   </div>
 </header>
 
-<!-- HERO -->
+<!-- HERO BANNER -->
 <section class="hero">
   <p>☀️ শুভ সকাল</p>
-  <h2>
-    আমাদের হোক সমৃদ্ধি,<br>
-    কৃষকের ঘরে ফিরুক হাসি
-  </h2>
+  <h2>আবাদে হোক সমৃদ্ধি,<br>কৃষকের ঘরে ফিরুক হাসি</h2>
   <div class="weather">
-    🌤️ 28°C<br>
+    🌤️ <strong>28°C</strong>
     <small>Islampur</small>
   </div>
 </section>
 
-<!-- SEARCH -->
-<div class="search">
-  <span>🔍</span>
-  <input
-    type="text"
-    id="searchInput"
-    placeholder="ফসল, পণ্য, কৃষক, বাজার, লোকেশন খুঁজুন..."
-  >
+<!-- SEARCH BAR -->
+<div class="search-container">
+  <span class="search-icon">🔍</span>
+  <input type="text" id="searchInput" placeholder="ফসল, পণ্য, কৃষক, বাজার, এমনকি লোকেশন খুঁজুন...">
+  <span class="filter-icon">Tune</span>
 </div>
 
-<!-- SELL / BUY -->
+<!-- ACTIONS -->
 <div class="main-buttons">
-  <button class="main-btn sell" onclick="alert('কৃষক হিসেবে পণ্য বিক্রির ব্যবস্থা শীঘ্রই আসছে!')">
-    <span class="big">🌱</span>
-    <strong>ফসল বিক্রি করুন →</strong>
+  <div class="main-btn sell-btn" onclick="alert('বিক্রি প্যানেল শীঘ্রই চালু হচ্ছে!')">
+    <div class="btn-header">
+      <div class="btn-icon-wrapper">🌱</div>
+      <span class="btn-arrow">→</span>
+    </div>
+    <strong>ফসল বিক্রি করুন</strong>
     <small>আপনার কষ্টার্জিত ফসলের ন্যায্য মূল্য পান</small>
-  </button>
+  </div>
 
-  <button class="main-btn buy" onclick="document.getElementById('products-section').scrollIntoView({behavior: 'smooth'})">
-    <span class="big">🛒</span>
-    <strong>ফসল কিনুন →</strong>
-    <small>পাইকার/ব্যবহারকারী থেকে সরাসরি</small>
-  </button>
+  <div class="main-btn buy-btn" onclick="document.getElementById('products-section').scrollIntoView({behavior: 'smooth'})">
+    <div class="btn-header">
+      <div class="btn-icon-wrapper">🛒</div>
+      <span class="btn-arrow">→</span>
+    </div>
+    <strong>ফসল কিনুন</strong>
+    <small>পাইকার/বাইকার থেকে সরাসরি</small>
+  </div>
 </div>
 
-<!-- CATEGORIES -->
-<section class="section">
-  <div class="categories">
-    <div class="category"><div class="icon">🌱</div><p>Seeds</p></div>
-    <div class="category"><div class="icon">🪴</div><p>Fertilizer</p></div>
-    <div class="category"><div class="icon">🧴</div><p>Pesticide</p></div>
-    <div class="category"><div class="icon">🚜</div><p>Vehicles</p></div>
-    <div class="category"><div class="icon">🛠️</div><p>Tools</p></div>
-    <div class="category"><div class="icon">👨‍🌾</div><p>Local Agent</p></div>
-    <div class="category"><div class="icon">📈</div><p>Market Price</p></div>
-    <div class="category"><div class="icon">🚚</div><p>Transportation</p></div>
-    <div class="category"><div class="icon">🤖</div><p>Agri Help</p></div>
-    <div class="category"><div class="icon">🏦</div><p>Loan</p></div>
-    <div class="category"><div class="icon">🌦️</div><p>Weather</p></div>
-    <div class="category"><div class="icon">•••</div><p>More</p></div>
-  </div>
-</section>
-
-<!-- MARKET PRICE -->
-<section class="section" id="market-section">
-  <div class="section-title">
-    <h2>🌿 আজকের বাজারদর</h2>
-    <a href="#">সব দেখুন →</a>
-  </div>
-  <div class="market-box">
-    <div class="market-list">
-      <div class="market-card">
-        <img class="market-img" src="https://unsplash.com" alt="Potato">
-        <div class="market-info">
-          <h3>আলু (ডায়মন্ড)</h3>
-          <p class="price">৳ ৪৫ / কেজি</p>
-          <p class="change">▲ ৳ ২ (আজ)</p>
-        </div>
-      </div>
-      <div class="market-card">
-        <img class="market-img" src="https://unsplash.com" alt="Onion">
-        <div class="market-info">
-          <h3>দেশী পেঁয়াজ</h3>
-          <p class="price">৳ ৯০ / কেজি</p>
-          <p class="change">▼ ৳ ৫ (আজ)</p>
-        </div>
-      </div>
-      <div class="market-card">
-        <img class="market-img" src="https://unsplash.com" alt="Rice">
-        <div class="market-info">
-          <h3>নাজিরশাইল চাল</h3>
-          <p class="price">৳ ৭৫ / কেজি</p>
-          <p class="change">৳ ০ (স্থির)</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRODUCTS SECTION -->
-<section class="section" id="products-section">
-  <div class="section-title">
-    <h2>🛒 তাজা ফসলের বাজার</h2>
-    <a href="#">সব দেখুন →</a>
-  </div>
-  <div class="products">
-    <div class="product">
-      <img src="https://unsplash.com" alt="Tomato">
-      <div class="product-info">
-        <h3>পাকা টমেটো (১০০ কেজি)</h3>
-        <p class="location">📍 ইসবপুর, জামালপুর</p>
-        <p class="product-price">৳ ৩,৫০০</p>
-      </div>
-    </div>
-    <div class="product">
-      <img src="https://unsplash.com" alt="Green Chili">
-      <div class="product-info">
-        <h3>কাঁচা মরিচ (২০ কেজি)</h3>
-        <p class="location">📍 শেরপুর সদর</p>
-        <p class="product-price">৳ ২,২০০</p>
-      </div>
-    </div>
-    <div class="product">
+<!-- 12 CATEGORIES GRID (As seen in screenshot) -->
+<section class="categories-grid">
+  <div class="category-item"><div class="category-icon">🌱</div><p>Seeds</p></div>
+  <div class="category-item"><div class="category-icon">💊</div><p>Fertilizer</p></div>
+  <div class="category-item"><div class="category-icon">🧪</div><p>Pesticide</p></div>
+  <div class="category-item"><div class="category-icon">🚜</div><p>Vehicles</p></div>
+  <div class="category-item"><div class="category-icon">🛠️</div><p>Tools</p></div>
