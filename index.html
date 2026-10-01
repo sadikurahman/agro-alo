@@ -1,552 +1,87 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agro Alo - কৃষকের পাশে</title>
-<!-- Google Fonts থেকে Hind Siliguri ফন্ট যুক্ত করা হলো চমৎকার বাংলা লেখার জন্য -->
-<link href="https://googleapis.com" rel="stylesheet">
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agro Alo – কৃষকের পাশে</title>
 <style>
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Hind Siliguri', Arial, sans-serif;
-  background: #f1f8f3;
-  color: #1a3322;
-  padding-bottom: 80px;
-}
-
-/* HEADER */
-header {
-  background: white;
-  padding: 15px 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo-icon img {
-  width: 42px;
-  height: 42px;
-}
-
-.logo-text h1 {
-  font-size: 24px;
-  color: #067236;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-.logo-text p {
-  font-size: 11px;
-  color: #5d7264;
-}
-
-.header-icons {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-}
-
-.header-icon {
-  background: #f1f8f3;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-/* HERO BANNER */
-.hero {
-  margin: 12px;
-  height: 140px;
-  border-radius: 16px;
-  overflow: hidden;
-  position: relative;
-  background: 
-    linear-gradient(90deg, rgba(16, 76, 36, 0.9) 0%, rgba(26, 114, 56, 0.4) 100%),
-    url('https://unsplash.com') center/cover;
-  color: white;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.hero p {
-  font-size: 13px;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  opacity: 0.9;
-}
-
-.hero h2 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-top: 6px;
-  line-height: 1.4;
-  max-width: 220px;
-}
-
-.weather {
-  position: absolute;
-  right: 16px;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(4px);
-  border-radius: 12px;
-  padding: 6px 12px;
-  font-size: 12px;
-  text-align: right;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.weather strong {
-  font-size: 14px;
-  display: block;
-}
-
-/* SEARCH BAR */
-.search-container {
-  margin: 12px;
-  background: white;
-  border: 1px solid #dbe7df;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  padding: 0 14px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-}
-
-.search-container .search-icon {
-  font-size: 18px;
-  color: #728a7c;
-}
-
-.search-container input {
-  width: 100%;
-  border: 0;
-  outline: none;
-  padding: 12px 10px;
-  font-size: 14px;
-  color: #1a3322;
-  font-family: inherit;
-}
-
-.search-container .filter-icon {
-  font-size: 18px;
-  color: #067236;
-  cursor: pointer;
-}
-
-/* MAIN ACTIONS (SELL/BUY) */
-.main-buttons {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin: 12px;
-}
-
-.main-btn {
-  border: 0;
-  border-radius: 16px;
-  padding: 16px 14px;
-  color: white;
-  text-align: left;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  overflow: hidden;
-}
-
-.sell-btn {
-  background: #067236;
-}
-
-.buy-btn {
-  background: #ffb000;
-}
-
-.btn-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.btn-icon-wrapper {
-  background: rgba(255, 255, 255, 0.2);
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-}
-
-.btn-arrow {
-  font-size: 16px;
-}
-
-.main-btn strong {
-  font-size: 16px;
-  margin-top: 10px;
-  font-weight: 700;
-}
-
-.main-btn small {
-  font-size: 10px;
-  opacity: 0.9;
-  margin-top: 2px;
-  font-weight: normal;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 100%;
-}
-
-/* GRID CATEGORIES */
-.categories-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 8px;
-  margin: 16px 12px;
-}
-
-.category-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  cursor: pointer;
-}
-
-.category-icon {
-  background: #e3f2e8;
-  width: 46px;
-  height: 46px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  margin-bottom: 4px;
-  transition: transform 0.2s;
-}
-
-.category-item p {
-  font-size: 11px;
-  color: #4a5e50;
-  font-weight: 500;
-}
-
-/* SECTION STRUCTURE */
-.section-wrapper {
-  margin: 20px 12px;
-}
-
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.section-header h2 {
-  font-size: 16px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.section-header .see-all {
-  color: #067236;
-  font-size: 12px;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-/* HORIZONTAL SCROLL LISTS */
-.scroll-container {
-  display: flex;
-  gap: 12px;
-  overflow-x: auto;
-  padding-bottom: 4px;
-  scrollbar-width: none; /* Firefox */
-}
-
-.scroll-container::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
-}
-
-/* MARKET CARD */
-.market-card {
-  min-width: 135px;
-  max-width: 135px;
-  background: white;
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid #e3ede6;
-  padding: 8px;
-}
-
-.market-card img {
-  width: 100%;
-  height: 75px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.market-info {
-  margin-top: 6px;
-}
-
-.market-info h3 {
-  font-size: 13px;
-  font-weight: 600;
-  color: #1a3322;
-}
-
-.market-info .price {
-  font-size: 12px;
-  color: #555;
-  margin-top: 2px;
-}
-
-.market-info .trend {
-  font-size: 11px;
-  font-weight: 600;
-  margin-top: 2px;
-}
-
-.trend.up { color: #2e7d32; }
-.trend.down { color: #c62828; }
-
-/* PRODUCT CARD */
-.product-card {
-  min-width: 180px;
-  max-width: 180px;
-  background: white;
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid #e3ede6;
-  padding: 8px;
-}
-
-.product-card img {
-  width: 100%;
-  height: 95px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.product-details {
-  margin-top: 6px;
-}
-
-.meta-row {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 10px;
-  color: #ff6f00;
-  font-weight: 600;
-}
-
-.product-details h3 {
-  font-size: 13px;
-  font-weight: 600;
-  color: #1a3322;
-  margin-top: 2px;
-}
-
-.product-details .qty {
-  font-size: 10px;
-  color: #728a7c;
-}
-
-.product-details .price {
-  font-size: 13px;
-  font-weight: 700;
-  color: #1a3322;
-  margin-top: 2px;
-}
-
-.tag-farmer {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background: #eaf6ee;
-  color: #067236;
-  font-size: 9px;
-  padding: 2px 6px;
-  border-radius: 6px;
-  margin-top: 4px;
-  font-weight: 600;
-}
-
-/* INFO ROW (HELPERS) */
-.info-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin: 16px 12px;
-}
-
-.info-card {
-  background: #eaf6ee;
-  border-radius: 14px;
-  padding: 12px 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-}
-
-.info-card .avatar {
-  font-size: 24px;
-}
-
-.info-text h4 {
-  font-size: 11px;
-  font-weight: 700;
-  color: #1a3322;
-}
-
-.info-text p {
-  font-size: 9px;
-  color: #5d7264;
-  line-height: 1.2;
-  margin-top: 1px;
-}
-
-/* NO RESULT MESSAGE */
-#noResult {
-  display: none;
-  text-align: center;
-  padding: 30px 15px;
-  color: #555;
-}
-
-/* BOTTOM NAVIGATION BAR */
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 65px;
-  background: white;
-  border-top: 1px solid #e2ece5;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 1000;
-}
-
-.nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #728a7c;
-  font-size: 10px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.nav-item .icon {
-  font-size: 20px;
-  margin-bottom: 2px;
-}
-
-.nav-item.active {
-  color: #067236;
-  font-weight: 700;
-}
+:root{--bg:#f1f8f3;--card:#fff;--tx:#12301d;--mut:#5d7766;--g:#15803d;--gd:#0f5a2c;--or:#f59e0b;--bd:#dcebe1;--tile:#e8f4ec;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1a13;--card:#16261c;--tx:#e6f3ea;--mut:#9bb5a4;--bd:#25402f;--tile:#1b3024}}
+:root[data-theme="dark"]{--bg:#0e1a13;--card:#16261c;--tx:#e6f3ea;--mut:#9bb5a4;--bd:#25402f;--tile:#1b3024}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:"Hind Siliguri","Noto Sans Bengali",system-ui,sans-serif}
+.w{max-width:980px;margin:auto;padding:14px}
+header{display:flex;align-items:center;gap:10px}
+.logo{font-size:34px}header h1{margin:0;font-size:28px;color:var(--g)}header h1 span{color:#d4a017}
+header small{display:block;color:var(--mut)}
+.hero{margin:14px 0;border-radius:16px;padding:22px;color:#fff;background:linear-gradient(120deg,#0f5a2c,#2e9b4f);position:relative}
+.hero h2{margin:4px 0 0;font-size:22px;max-width:70%}
+.wx{position:absolute;right:14px;top:14px;background:#0006;border-radius:12px;padding:6px 10px;text-align:center}
+.sb{display:flex;gap:8px;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:10px 12px;position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.sb input{flex:1;border:0;outline:0;background:transparent;color:var(--tx);font:inherit;font-size:16px;min-width:0}
+.sb button{border:0;background:none;color:var(--mut);font-size:18px;cursor:pointer}
+.cta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.cta div{border-radius:14px;padding:14px;color:#fff;font-weight:700}.cta small{display:block;font-weight:400;opacity:.9}
+.s{background:linear-gradient(120deg,#15803d,#22a04f)}.b{background:linear-gradient(120deg,#d97706,#f5a30b)}
+h3{margin:18px 0 8px;font-size:18px}
+.grid{display:grid;gap:10px}.cat{grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}
+.tile{background:var(--tile);border:1px solid var(--bd);border-radius:14px;padding:14px 6px;text-align:center;font-size:14px}
+.tile i{display:block;font-style:normal;font-size:28px}
+.pr{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}.ls{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:12px}
+.card .e{font-size:40px}.up{color:var(--g);font-weight:700}.mut{color:var(--mut);font-size:13px}
+.tag{display:inline-block;background:var(--tile);color:var(--g);border-radius:20px;padding:2px 10px;font-size:12px;margin-top:6px}
+#none{display:none;text-align:center;padding:40px;color:var(--mut)}
+mark{background:#fde68a;color:#000;border-radius:3px}
 </style>
 </head>
 <body>
-
-<!-- HEADER -->
-<header>
-  <div class="logo">
-    <div class="logo-icon">
-      <!-- স্ক্রিনশটের মতো লোগো আইকন সেট করা হলো -->
-      <span style="font-size:32px;">🌱</span>
-    </div>
-    <div class="logo-text">
-      <h1>Agro Alo</h1>
-      <p>কৃষকের পাশে, সবার জন্য ভালো ফসল</p>
-    </div>
-  </div>
-  <div class="header-icons">
-    <div class="header-icon">🔔</div>
-    <div class="header-icon">👤</div>
-  </div>
-</header>
-
-<!-- HERO BANNER -->
-<section class="hero">
-  <p>☀️ শুভ সকাল</p>
-  <h2>আবাদে হোক সমৃদ্ধি,<br>কৃষকের ঘরে ফিরুক হাসি</h2>
-  <div class="weather">
-    🌤️ <strong>28°C</strong>
-    <small>Islampur</small>
-  </div>
-</section>
-
-<!-- SEARCH BAR -->
-<div class="search-container">
-  <span class="search-icon">🔍</span>
-  <input type="text" id="searchInput" placeholder="ফসল, পণ্য, কৃষক, বাজার, এমনকি লোকেশন খুঁজুন...">
-  <span class="filter-icon">Tune</span>
+<div class="w">
+<header><div class="logo">🌱</div><div><h1>Agro <span>Alo</span></h1><small>কৃষকের পাশে, সবার জন্য ভালো ফসল</small></div></header>
+<div class="hero"><div>☀️ শুভ সকাল</div><h2>আবাদে হোক সমৃদ্ধি, কৃষকের ঘরে ফিরুক হাসি</h2><div class="wx">⛅ 28°C<br><small>Islampur</small></div></div>
+<div class="sb"><span>🔍</span><input id="q" type="search" placeholder="ফসল, পণ্য, কৃষক, বাজার, লোকেশন খুঁজুন… / Search in English" autocomplete="off"><button id="x" hidden aria-label="clear">✕</button></div>
+<div class="cta"><div class="s">🌿 ফসল বিক্রি করুন<small>আপনার কষ্টার্জিত ফসলের ন্যায্য মূল্য পান</small></div><div class="b">🛒 ফসল কিনুন<small>পাইকারবাইকার থেকে সরাসরি</small></div></div>
+<div id="none">😕 কিছু পাওয়া যায়নি / No results found</div>
+<section id="sc"><div class="grid cat" id="cat"></div></section>
+<section id="sp"><h3>🌿 আজকের বাজারদর</h3><div class="grid pr" id="pr"></div></section>
+<section id="sl"><h3>📍 কাছাকাছি বিক্রির জন্য ফসল</h3><div class="grid ls" id="ls"></div></section>
 </div>
-
-<!-- ACTIONS -->
-<div class="main-buttons">
-  <div class="main-btn sell-btn" onclick="alert('বিক্রি প্যানেল শীঘ্রই চালু হচ্ছে!')">
-    <div class="btn-header">
-      <div class="btn-icon-wrapper">🌱</div>
-      <span class="btn-arrow">→</span>
-    </div>
-    <strong>ফসল বিক্রি করুন</strong>
-    <small>আপনার কষ্টার্জিত ফসলের ন্যায্য মূল্য পান</small>
-  </div>
-
-  <div class="main-btn buy-btn" onclick="document.getElementById('products-section').scrollIntoView({behavior: 'smooth'})">
-    <div class="btn-header">
-      <div class="btn-icon-wrapper">🛒</div>
-      <span class="btn-arrow">→</span>
-    </div>
-    <strong>ফসল কিনুন</strong>
-    <small>পাইকার/বাইকার থেকে সরাসরি</small>
-  </div>
-</div>
-
-<!-- 12 CATEGORIES GRID (As seen in screenshot) -->
-<section class="categories-grid">
-  <div class="category-item"><div class="category-icon">🌱</div><p>Seeds</p></div>
-  <div class="category-item"><div class="category-icon">💊</div><p>Fertilizer</p></div>
-  <div class="category-item"><div class="category-icon">🧪</div><p>Pesticide</p></div>
-  <div class="category-item"><div class="category-icon">🚜</div><p>Vehicles</p></div>
-  <div class="category-item"><div class="category-icon">🛠️</div><p>Tools</p></div>
+<script>
+// k = অতিরিক্ত keyword (English + Banglish) যাতে যেকোনো ভাষায় সার্চ করা যায়
+const CATS=[
+["🌱","Seeds","বীজ","beej bij seed"],["🧪","Fertilizer","সার","shar sar fertiliser urea"],
+["🧴","Pesticide","কীটনাশক","kitnashok pesticide poison spray"],["🚜","Vehicles","যানবাহন","tractor janbahan gari vehicle"],
+["🛠️","Tools","যন্ত্রপাতি","jontropati tools equipment"],["🧑‍🤝‍🧑","Local Agent","লোকাল এজেন্ট","agent local"],
+["📈","Market Price","বাজারদর","bazar dor price market"],["🚚","Transportation","পরিবহন","poribohon transport truck"],
+["💬","Agri Help (AI)","কৃষি সহায়তা","krishi sohayota help ai"],["🏦","Loan","ঋণ","rin loan bank"],
+["⛅","Weather","আবহাওয়া","abohawa weather rain"],["⋯","More","আরও","aro more"]];
+const CROPS=[
+["🥔","Potato","আলু","alu aloo",35,2],["🍅","Tomato","টমেটো","tomato tometo",40,3],
+["🧅","Onion","পেঁয়াজ","peyaj piaj peaz",28,1],["🌶️","Green Chili","কাঁচামরিচ","kachamorich morich chili chilli",60,5]];
+const LIST=[[1,"Islampur","ইসলামপুর",500],[0,"Islampur","ইসলামপুর",1000],[3,"Makkimpur","মক্কিমপুর",300]];
+const bn=n=>String(n).replace(/\d/g,d=>"০১২৩৪৫৬৭৮৯"[d]);
+// স্পেস/যতিচিহ্ন বাদ, lowercase, বাংলা-ইংরেজি সংখ্যা এক করা
+const norm=s=>s.normalize("NFC").toLowerCase().replace(/[০-৯]/g,d=>"০১২৩৪৫৬৭৮৯".indexOf(d)).replace(/[\s,.\-_()\/]+/g,"");
+const hay=a=>norm(a.join(" "));
+const C=CATS.map(c=>({c,h:hay([c[1],c[2],c[3]])}));
+const P=CROPS.map(c=>({c,h:hay([c[1],c[2],c[3],"bazar dor বাজারদর price"])}));
+const L=LIST.map(l=>{const c=CROPS[l[0]];return{l,c,h:hay([c[1],c[2],c[3],l[1],l[2],"krishok কৃষক farmer"])}});
+const $=id=>document.getElementById(id);
+function hl(t,q){ // ম্যাচ হলে highlight
+  if(!q)return t;const i=t.toLowerCase().indexOf(q.toLowerCase());
+  return i<0?t:t.slice(0,i)+"<mark>"+t.slice(i,i+q.length)+"</mark>"+t.slice(i+q.length)}
+function render(){
+  const raw=$("q").value.trim(),q=norm(raw);$("x").hidden=!raw;
+  const fc=C.filter(o=>o.h.includes(q)),fp=P.filter(o=>o.h.includes(q)),fl=L.filter(o=>o.h.includes(q));
+  $("cat").innerHTML=fc.map(({c})=>`<div class="tile"><i>${c[0]}</i>${hl(c[1],raw)}<div class="mut">${hl(c[2],raw)}</div></div>`).join("");
+  $("pr").innerHTML=fp.map(({c})=>`<div class="card"><div class="e">${c[0]}</div><b>${hl(c[2],raw)}</b> <span class="mut">${hl(c[1],raw)}</span><div>৳ ${bn(c[4])}/kg</div><div class="up">↑ +${bn(c[5])}</div></div>`).join("");
+  $("ls").innerHTML=fl.map(({l,c})=>`<div class="card"><div class="e">${c[0]}</div><b>${hl(c[2],raw)}</b> <span class="mut">${hl(c[1],raw)}</span><div class="mut">📍 ${hl(l[1],raw)} (${l[2]})</div><div class="mut">${bn(l[3])} kg available</div><b>৳ ${bn(c[4])}/kg</b><br><span class="tag">কৃষক থেকে</span></div>`).join("");
+  $("sc").style.display=fc.length?"":"none";$("sp").style.display=fp.length?"":"none";$("sl").style.display=fl.length?"":"none";
+  $("none").style.display=(fc.length+fp.length+fl.length)?"none":"block"}
+$("q").addEventListener("input",render);
+$("x").onclick=()=>{$("q").value="";render();$("q").focus()};
+render();
+</script>
+</body>
+</html>
