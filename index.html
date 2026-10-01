@@ -80,7 +80,7 @@ header{
   position:relative;
   background:
     linear-gradient(90deg,rgba(0,80,30,.92),rgba(0,110,45,.55)),
-    url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=80")
+    url("https://unsplash.com")
     center/cover;
   color:white;
   padding:22px;
@@ -410,406 +410,132 @@ footer p{
 
 <!-- HEADER -->
 <header>
-
   <div class="logo">
     <div class="logo-icon">🌱</div>
-
     <div class="logo-text">
       <h1>Agro Alo</h1>
       <p>কৃষকের পাশে, সবার জন্য ভালো ফসল</p>
     </div>
   </div>
-
   <div class="header-icons">
     <div class="header-icon">🔔</div>
     <div class="header-icon">👤</div>
   </div>
-
 </header>
-
 
 <!-- HERO -->
 <section class="hero">
-
   <p>☀️ শুভ সকাল</p>
-
   <h2>
     আমাদের হোক সমৃদ্ধি,<br>
     কৃষকের ঘরে ফিরুক হাসি
   </h2>
-
   <div class="weather">
     🌤️ 28°C<br>
     <small>Islampur</small>
   </div>
-
 </section>
-
 
 <!-- SEARCH -->
 <div class="search">
-
   <span>🔍</span>
-
   <input
     type="text"
     id="searchInput"
     placeholder="ফসল, পণ্য, কৃষক, বাজার, লোকেশন খুঁজুন..."
   >
-
 </div>
-
 
 <!-- SELL / BUY -->
 <div class="main-buttons">
-
-  <button class="main-btn sell"
-          onclick="alert('কৃষক হিসেবে পণ্য বিক্রির ব্যবস্থা শীঘ্রই আসছে!')">
-
+  <button class="main-btn sell" onclick="alert('কৃষক হিসেবে পণ্য বিক্রির ব্যবস্থা শীঘ্রই আসছে!')">
     <span class="big">🌱</span>
-
     <strong>ফসল বিক্রি করুন →</strong>
-
     <small>আপনার কষ্টার্জিত ফসলের ন্যায্য মূল্য পান</small>
-
   </button>
 
-
-  <button class="main-btn buy"
-          onclick="document.getElementById('products').scrollIntoView()">
-
+  <button class="main-btn buy" onclick="document.getElementById('products-section').scrollIntoView({behavior: 'smooth'})">
     <span class="big">🛒</span>
-
     <strong>ফসল কিনুন →</strong>
-
     <small>পাইকার/ব্যবহারকারী থেকে সরাসরি</small>
-
   </button>
-
 </div>
-
 
 <!-- CATEGORIES -->
 <section class="section">
-
   <div class="categories">
-
-    <div class="category">
-      <div class="icon">🌱</div>
-      <p>Seeds</p>
-    </div>
-
-    <div class="category">
-      <div class="icon">🪴</div>
-      <p>Fertilizer</p>
-    </div>
-
-    <div class="category">
-      <div class="icon">🧴</div>
-      <p>Pesticide</p>
-    </div>
-
-    <div class="category">
-      <div class="icon">🚜</div>
-      <p>Vehicles</p>
-    </div>
-
-    <div class="category">
-      <div class="icon">🛠️</div>
-      <p>Tools</p>
-    </div>
-
-    <div class="category">
-      <div class="icon">👨‍🌾</div>
-      <p>Local Agent</p>
-    </div>
-
-    <div class="category">
-      <div class="icon">📈</div>
-      <p>Market Price</p>
-    </div>
-
-    <div class="category">
-      <div class="icon">🚚</div>
-      <p>Transportation</p>
-    </div>
-
-    <div class="category">
-      <div class="icon">🤖</div>
-      <p>Agri Help</p>
-    </div>
-
-    <div class="category">
-      <div class="icon">🏦</div>
-      <p>Loan</p>
-    </div>
-
-    <div class="category">
-      <div class="icon">🌦️</div>
-      <p>Weather</p>
-    </div>
-
-    <div class="category">
-      <div class="icon">•••</div>
-      <p>More</p>
-    </div>
-
+    <div class="category"><div class="icon">🌱</div><p>Seeds</p></div>
+    <div class="category"><div class="icon">🪴</div><p>Fertilizer</p></div>
+    <div class="category"><div class="icon">🧴</div><p>Pesticide</p></div>
+    <div class="category"><div class="icon">🚜</div><p>Vehicles</p></div>
+    <div class="category"><div class="icon">🛠️</div><p>Tools</p></div>
+    <div class="category"><div class="icon">👨‍🌾</div><p>Local Agent</p></div>
+    <div class="category"><div class="icon">📈</div><p>Market Price</p></div>
+    <div class="category"><div class="icon">🚚</div><p>Transportation</p></div>
+    <div class="category"><div class="icon">🤖</div><p>Agri Help</p></div>
+    <div class="category"><div class="icon">🏦</div><p>Loan</p></div>
+    <div class="category"><div class="icon">🌦️</div><p>Weather</p></div>
+    <div class="category"><div class="icon">•••</div><p>More</p></div>
   </div>
-
 </section>
-
 
 <!-- MARKET PRICE -->
 <section class="section">
-
   <div class="section-title">
     <h2>🌿 আজকের বাজারদর</h2>
     <a href="#">সব দেখুন →</a>
   </div>
-
   <div class="market-box">
-
     <div class="market-list">
-
       <div class="market-card">
-
-        <img
-          class="market-img"
-          src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=500&q=80"
-        >
-
+        <img class="market-img" src="https://unsplash.com" alt="Potato">
         <div class="market-info">
-          <h3>আলু</h3>
-          <div class="price">৳ 35/kg</div>
-          <div class="change">↑ +2</div>
+          <h3>আলু (ডায়মন্ড)</h3>
+          <p class="price">৳ ৪৫ / কেজি</p>
+          <p class="change">▲ ৳ ২ (আজ)</p>
         </div>
-
       </div>
-
-
       <div class="market-card">
-
-        <img
-          class="market-img"
-          src="https://images.unsplash.com/photo-1546094096-0df4bcaaa337?auto=format&fit=crop&w=500&q=80"
-        >
-
+        <img class="market-img" src="https://unsplash.com" alt="Onion">
         <div class="market-info">
-          <h3>টমেটো</h3>
-          <div class="price">৳ 40/kg</div>
-          <div class="change">↑ +3</div>
+          <h3>দেশী পেঁয়াজ</h3>
+          <p class="price">৳ ৯০ / কেজি</p>
+          <p class="change">▼ ৳ ৫ (আজ)</p>
         </div>
-
       </div>
-
-
       <div class="market-card">
-
-        <img
-          class="market-img"
-          src="https://images.unsplash.com/photo-1518977956812-cd3dbadaaf31?auto=format&fit=crop&w=500&q=80"
-        >
-
+        <img class="market-img" src="https://unsplash.com" alt="Rice">
         <div class="market-info">
-          <h3>পেঁয়াজ</h3>
-          <div class="price">৳ 28/kg</div>
-          <div class="change">↑ +1</div>
+          <h3>নাজিরশাইল চাল</h3>
+          <p class="price">৳ ৭holder / কেজি</p>
+          <p class="change">৳ ০ (স্থির)</p>
         </div>
-
       </div>
-
-
-      <div class="market-card">
-
-        <img
-          class="market-img"
-          src="https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&w=500&q=80"
-        >
-
-        <div class="market-info">
-          <h3>কাঁচামরিচ</h3>
-          <div class="price">৳ 60/kg</div>
-          <div class="change">↑ +5</div>
-        </div>
-
-      </div>
-
     </div>
-
   </div>
-
 </section>
 
-
-<!-- NEARBY PRODUCTS -->
-<section class="section" id="products">
-
+<!-- PRODUCTS SECTION -->
+<section class="section" id="products-section">
   <div class="section-title">
-    <h2>🌿 কাছাকাছি বিক্রির জন্য ফসল</h2>
+    <h2>🛒 তাজা ফসলের বাজার</h2>
     <a href="#">সব দেখুন →</a>
   </div>
-
-  <div class="products" id="productList">
-
+  <div class="products">
     <div class="product">
-
-      <img src="https://images.unsplash.com/photo-1546470427-227c7369b4c7?auto=format&fit=crop&w=500&q=80">
-
+      <img src="https://unsplash.com" alt="Tomato">
       <div class="product-info">
-
-        <div class="location">📍 Islampur</div>
-
-        <h3>টমেটো</h3>
-
-        <div class="location">500 kg available</div>
-
-        <div class="product-price">৳ 40/kg</div>
-
+        <h3>পাকা টমেটো (১০০ কেজি)</h3>
+        <p class="location">📍 ইসবপুর, জামালপুর</p>
+        <p class="product-price">৳ ৩,৫০০</p>
       </div>
-
     </div>
-
-
     <div class="product">
-
-      <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=500&q=80">
-
+      <img src="https://unsplash.com" alt="Green Chili">
       <div class="product-info">
-
-        <div class="location">📍 Islampur</div>
-
-        <h3>আলু</h3>
-
-        <div class="location">1,000 kg available</div>
-
-        <div class="product-price">৳ 35/kg</div>
-
+        <h3>কাঁচা মরিচ (২০ কেজি)</h3>
+        <p class="location">📍 শেরপুর সদর</p>
+        <p class="product-price">৳ ২,২০০</p>
       </div>
-
     </div>
-
-
     <div class="product">
-
-      <img src="https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&w=500&q=80">
-
-      <div class="product-info">
-
-        <div class="location">📍 Makkimpur</div>
-
-        <h3>কাঁচামরিচ</h3>
-
-        <div class="location">300 kg available</div>
-
-        <div class="product-price">৳ 60/kg</div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- SERVICES -->
-<section class="section">
-
-  <div class="services">
-
-    <div class="service">
-      <div class="icon">👨‍🌾</div>
-      <h3>কৃষক সহায়তা</h3>
-      <p>প্রশিক্ষণ ও পরামর্শ</p>
-    </div>
-
-    <div class="service">
-      <div class="icon">🧑‍💼</div>
-      <h3>লোকাল এজেন্ট</h3>
-      <p>আপনার এলাকায় এজেন্ট</p>
-    </div>
-
-    <div class="service">
-      <div class="icon">🤝</div>
-      <h3>পার্টনার</h3>
-      <p>সহযোগী প্রতিষ্ঠান</p>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- FOOTER -->
-<footer>
-
-  <h2>🌾 Agro Alo</h2>
-
-  <p>কৃষকের পাশে, সবার জন্য ভালো ফসল</p>
-
-  <p style="margin-top:10px;">
-    © 2026 Agro Alo
-  </p>
-
-</footer>
-
-
-<!-- BOTTOM NAV -->
-<div class="bottom-nav">
-
-  <div class="nav-item active">
-    <span class="icon">⌂</span>
-    Home
-  </div>
-
-  <div class="nav-item">
-    <span class="icon">🌱</span>
-    E-Market
-  </div>
-
-  <div class="nav-item">
-    <span class="icon">🌿</span>
-    My Farm
-  </div>
-
-  <div class="nav-item">
-    <span class="icon">💬</span>
-    Chat
-  </div>
-
-  <div class="nav-item">
-    <span class="icon">•••</span>
-    More
-  </div>
-
-</div>
-<!-- SEARCH FUNCTION -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-  const searchInput = document.getElementById("searchInput");
-  const products = document.querySelectorAll(".product");
-
-  searchInput.addEventListener("input", function () {
-
-    const searchText = searchInput.value.trim().toLowerCase();
-
-    products.forEach(function (product) {
-
-      const productText = product.textContent.toLowerCase();
-
-      if (productText.includes(searchText)) {
-        product.style.display = "";
-      } else {
-        product.style.display = "none";
-      }
-
-    });
-
-  });
-
-});
-</script>
-
-</body>
-</html>
