@@ -784,32 +784,34 @@ footer p{
 
 </div>
 
-
 <!-- SEARCH FUNCTION -->
 <script>
+document.addEventListener("DOMContentLoaded", function () {
 
-const searchInput = document.getElementById("searchInput");
-const products = document.querySelectorAll(".product");
+  const searchInput = document.getElementById("searchInput");
+  const products = document.querySelectorAll(".product");
 
-searchInput.addEventListener("input", function(){
+  searchInput.addEventListener("keyup", function () {
 
-  const searchText = this.value.toLowerCase().trim();
+    const searchText = searchInput.value.trim().toLowerCase();
 
-  products.forEach(function(product){
+    products.forEach(function (product) {
 
-    const productText = product.innerText.toLowerCase();
+      const productText = product.textContent.toLowerCase();
 
-    if(productText.includes(searchText)){
-      product.style.display = "";
-    }else{
-      product.style.display = "none";
-    }
+      if (searchText === "" || productText.indexOf(searchText) !== -1) {
+        product.style.display = "";
+      } else {
+        product.style.display = "none";
+      }
+
+    });
 
   });
 
 });
-
 </script>
+
 
 </body>
 </html>
