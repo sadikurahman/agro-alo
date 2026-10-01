@@ -783,7 +783,6 @@ footer p{
   </div>
 
 </div>
-
 <!-- SEARCH FUNCTION -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -791,7 +790,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const searchInput = document.getElementById("searchInput");
   const products = document.querySelectorAll(".product");
 
-  searchInput.addEventListener("keyup", function () {
+  searchInput.addEventListener("input", function () {
 
     const searchText = searchInput.value.trim().toLowerCase();
 
@@ -799,7 +798,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const productText = product.textContent.toLowerCase();
 
-      if (searchText === "" || productText.indexOf(searchText) !== -1) {
+      if (productText.includes(searchText)) {
         product.style.display = "";
       } else {
         product.style.display = "none";
@@ -811,7 +810,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
-
 
 </body>
 </html>
